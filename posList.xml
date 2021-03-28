@@ -1,0 +1,40 @@
+<words>
+    <word>
+        <term>pumpkin</term>
+        <pos>noun</pos>
+    </word>
+    <word>
+        <term>witch</term>
+        <pos>noun</pos>
+    </word>
+    <word>
+        <term>ghost</term>
+        <pos>noun</pos>
+    </word>
+
+    <word>
+        <term>scary</term>
+        <pos>adjective</pos>
+    </word>
+    <word>
+        <term>spooky</term>
+        <pos>adjective</pos>
+    </word>
+    <word>
+        <term>funny</term>
+        <pos>adjective</pos>
+    </word>
+    
+    <word>
+        <term>walk</term>
+        <pos>verb</pos>
+    </word>
+    <word>
+        <term>laugh</term>
+        <pos>verb</pos>
+    </word>
+    <word>
+        <term>play</term>
+        <pos>verb</pos>
+    </word>
+</words>

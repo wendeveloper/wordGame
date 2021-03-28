@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/angular16.js"></script>
+    <script src="js/wordController.js"></script>
+    <script src="js/pos.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Silly Word Game</title>
+</head>
+<body ng-controller="WordController" >
+<header>
+    <!-- FUN LOGO WITH SVG -->
+    <svg viewBox="0 0 600 80" >
+        <style>
+            .small { font: italic 13px sans-serif; }
+            .heavy { font: bold 30px sans-serif; }
+            .Rrrrr { font: italic 40px serif; fill: red; }
+        </style>
+
+        <text x="20" y="35" class="small">Silly</text>
+        <text x="40" y="35" class="heavy">Words</text>
+        <text x="55" y="55" class="small">Funny</text>
+        <text x="65" y="55" class="Rrrrr">Words!</text>
+    </svg>
+<hr>
+</header>
+
+    <div ng-repeat="word in words">
+        <table>
+            <tr>
+                <td>
+                    <!--- USER INPUT --->
+                    <fieldset>
+                    <legend>Enter some silly words</legend>
+                    <label>Noun:</label>        <input type="text" ng-model="word.noun" placeholder="enter noun" autofocus id="target"> <br>
+                    <label>Adjective:</label>   <input type="text" ng-model="word.adjective" placeholder="enter adjective" autofocus ><br>
+                    <label >Verb:</label>       <input type="text" ng-model="word.verb" placeholder="enter verb" autofocus><br>
+                    <label >Plural Noun</label> <input type="text" ng-model="word.pluralNoun" placeholder="enter plural noun" autofocus><br>
+                    <label >Color</label>       <input type="text" ng-model="word.myColor" placeholder="enter color" autofocus><br>
+                    <label >First Name</label>  <input type="text" ng-model="word.fName" placeholder="enter first name" autofocus><br>
+                    <label >Last Name</label>   <input type="text" ng-model="word.lName" placeholder="enter last name" autofocus><br>
+
+                        <!--- SAVE USER INPUT TO LOCAL STORAGE --->
+                    <label></label><label align="right"><button ng-click="saveWords()">Save</button></label><br>
+                    </fieldset>
+                </td>
+                <td>
+                    <!--DRAGGABLE WORDS-->
+                    <fieldset>
+                    <legend>draggable nouns</legend>
+                        <p draggable="true">pumpkin</p>
+                        <p draggable="true">ghost</p>
+                        <p draggable="true">witch</p>
+                    </fieldset><br>
+
+                    <fieldset>
+                    <legend>Pick a silly story</legend>
+                    <!--- ONCHECK DISPLAY THE STORIES IN THE REFERENCED DIV--->
+                   <input type="checkbox" ng-model="myLetter">Letter<br>
+                   <input type="checkbox" ng-model="myRhyme">Rhyme<br>
+                   <input type="checkbox" ng-model="mySong">Song<br>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
+                <!--- SHOW LETTER --->
+                <div ng-show="myLetter"><hr>
+                    <legend>Letter:</legend>
+                    Dear Mr. and Mrs. <u><strong>{{ word.lName }}</strong></u>,<br>
+                    We are writing to <u><strong>{{ word.verb }}</strong></u> you that your
+                    <u><strong>{{ word.noun }}</strong></u> bill is way <u><strong>{{ word.adjective }}</strong></u>.  Please
+                    <u><strong>{{ word.verb }}</strong></u> payment as soon as possible.<br>
+                    Sincerely,<br>
+                    The <u><strong>{{ word.adjective }}</strong></u> <u><strong>{{ word.noun }}</strong></u> Company
+                </div>
+
+                <!--- SHOW RHYME --->
+                <div ng-show="myRhyme"><hr>
+                    <legend>Rhyme:</legend>
+                    <u><strong>{{ word.fName }}</strong></u> Sprat
+                    could <u><strong>{{ word.verb }}</strong></u> no fat,
+                    His wife could <u><strong>{{ word.verb }}</strong></u> no lean;
+                    And so betwixt them both,
+                    They <u><strong>{{ word.verb }}</strong></u> the <u><strong>{{ word.noun }}</strong></u> clean.
+                </div>
+
+                <!--- SHOW SONG --->
+                <div ng-show="mySong":><hr>
+                    <legend>Song: <small>(to the sound of Star Spangled Banner)</small></legend>
+                    Oh, say can you <u><strong>{{ word.verb }}</strong></u>
+                    by the dawn’s early <u><strong>{{ word.noun }}</strong></u>
+                    What so <u><strong>{{ word.noun }}</strong></u> we <u><strong>{{ word.verb }}</strong></u>
+                    at the twilight’s last gleaming?
+                    Whose broad <u><strong>{{ word.pluralNoun }}</strong></u>
+                    and bright <u><strong>{{ word.pluralNoun }}</strong></u>
+                    thru the <u><strong>{{ word.adjective }}</strong></u>
+                    fight, O’er the <u><strong>{{ word.pluralNoun }}</strong></u>
+                    we watched were so gallantly <u><strong>{{ word.verb }}</strong></u>ing?
+                    And the rocket’s <u><strong>{{ word.myColor }}</strong></u>  glare,
+                    the <u><strong>{{ word.pluralNoun }}</strong></u>
+                    bursting in <u><strong>{{ word.noun }}</strong></u> ,
+                    Gave proof through the night that our <u><strong>{{ word.noun }}</strong></u> was still there.
+                    Oh, say does that <u><strong>{{ word.adjective }}</strong></u>
+                    banner yet <u><strong>{{ word.verb }}</strong></u>
+                    O’er the land of the <u><strong>{{ word.adjective }}</strong></u>
+                    and the home of the <u><strong>{{ word.adjective }}</strong></u> ?
+                </div>
+
+        <hr>
+
+        <!--footer-->
+        <footer>
+            &copy; Copyright 2019 Wendy Robins  - BU MET CS701 Term Project
+        </footer>
+</body>
+</html>
